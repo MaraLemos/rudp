@@ -22,14 +22,14 @@ import java.util.List;
  * @author 
  */
 public class Cliente {
-    public static String PATH = "C:\\Users\\lucas\\OneDrive\\Documentos\\Programacao\\Redes\\rudp\\teste.pdf";
+    public static String PATH = "teste.pdf";
     
     public static List<byte[]> getPackets(String path) throws Exception {
         List<byte[]> packets = new ArrayList<>();
         
         try (FileInputStream file = new FileInputStream(path)) {
-            for(int i = 0; i < (int) (file.getChannel().size()); i += 1024)
-                packets.add(file.readNBytes(1024));
+            for(int i = 0; i < (int) (file.getChannel().size()); i += 1012)
+                packets.add(file.readNBytes(1012));
         }
         
         return packets;
@@ -42,26 +42,38 @@ public class Cliente {
         DatagramSocket socket = new DatagramSocket(2000);
         
         List<byte[]> packets = getPackets(PATH);
-        
-        int index = 0, begin = 0;
-        while(true && index < 1104) {
-            byte [] packet = packets.get(index);
-            
-            System.out.println("[ENVIOU] seq = " + begin);
-            byte [] seq = ByteBuffer.allocate(4).putInt(begin).array();
-            socket.send(new DatagramPacket(seq, seq.length, InetAddress.getLocalHost(), 1000));
-            
-            System.out.println("[ENVIOU] pacote " + index);
-            socket.send(new DatagramPacket(packet, packet.length, InetAddress.getLocalHost(), 1000));
-            
-            byte [] ack = new byte[4];
-            socket.receive(new DatagramPacket(ack, ack.length));
-            System.out.println("[RECEBEU] ack = " + ByteBuffer.wrap(ack).getInt());
-            
-            begin += packet.length;
-            index++;
-            
-            System.out.println("");
+        int index = 0, begin = 0, ackk = 0;
+
+        while(index < packets.size()) {
+
+            if(ackk == begin){
+
+                //Dados
+                byte [] packet = packets.get(index);
+                
+                byte [] datagrama = new byte[12 + packet.length];
+
+                //Cabeçalho
+                byte [] seq = ByteBuffer.allocate(4).putInt(begin).array();
+                byte [] tam = ByteBuffer.allocate(4).putInt(packet.length).array();
+                byte [] FIN = (index == (packets.size() -1)) ? ByteBuffer.allocate(4).putInt(1).array() : ByteBuffer.allocate(4).putInt(0).array();
+
+                System.arraycopy(seq, 0, datagrama, 0, 4);
+                System.out.println("[ENVIOU] numero de sequencia " + ByteBuffer.wrap(seq).getInt());
+                System.arraycopy(tam, 0, datagrama, 4, 4);
+                System.out.println("[ENVIOU] tam " + ByteBuffer.wrap(tam).getInt());
+                System.arraycopy(FIN, 0, datagrama, 8, 1);
+                System.out.println("[ENVIOU] fin " + ByteBuffer.wrap(FIN).getInt());
+                System.arraycopy(packet, 0, datagrama, 12, packet.length);
+                socket.send(new DatagramPacket(tam, tam.length, InetAddress.getLocalHost(), 1000));
+
+                index++;
+                begin += datagrama.length;
+
+                byte [] ack = new byte[4];
+                socket.receive(new DatagramPacket(ack, ack.length));
+                ackk = ByteBuffer.wrap(ack).getInt(); 
+            }
         }
     }
 }
