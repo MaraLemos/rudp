@@ -19,42 +19,55 @@ public class Servidor {
         byte [] datagrama = new byte[1024];
         int begin = 0;
 
+        int cont = 0;
         while(true && !fim){
-            
+            if(cont == 10) {
+                System.out.println("Recebeu 10 pacotes");
+
+                byte [] ack = ByteBuffer.allocate(4).putInt(begin).array();
+                socket.send(new DatagramPacket(ack, ack.length, InetAddress.getLocalHost(), 2000));
+                System.out.println("[ENVIOU] akc " + begin);
+
+                cont = 0;
+            }
+
             socket.receive(new DatagramPacket(datagrama, datagrama.length));
 
             System.arraycopy(datagrama, 0, seq, 0, 4);
-            //System.out.println("[RECEBEU] numero de sequencia " + ByteBuffer.wrap(seq).getInt());
-
             System.arraycopy(datagrama, 4, tam, 0, 4);
-            //System.out.println("[RECEBEU] tam do pacote " + ByteBuffer.wrap(tam).getInt());
-
             System.arraycopy(datagrama, 8, FIN, 0, 4);
-            //System.out.println("[RECEBEU] fin " + ByteBuffer.wrap(FIN).getInt());
 
             byte [] packet = new byte[ByteBuffer.wrap(tam).getInt()];
             System.arraycopy(datagrama, 12, packet, 0, packet.length);
-            //System.out.println("[RECEBEU] pacote");
-
+            
+            System.out.println("[RECEBEU] numero de sequencia " + ByteBuffer.wrap(seq).getInt());
+            System.out.println("[RECEBEU] tam do pacote " + ByteBuffer.wrap(tam).getInt());
+            System.out.println("[RECEBEU] fin " + ByteBuffer.wrap(FIN).getInt());
+            System.out.println("[RECEBEU] pacote");
+            System.out.println("cont = " + cont);
             //Escreve pacote no buffer de recepção
+            
             bufferRecepcao.write(packet,0,packet.length);
 
             begin += datagrama.length;
 
-            byte [] ack = ByteBuffer.allocate(4).putInt(begin).array();
-            socket.send(new DatagramPacket(ack, ack.length, InetAddress.getLocalHost(), 2000));
-            //System.out.println("[ENVIOU] akc " + begin);
-
             if(ByteBuffer.wrap(FIN).getInt() == 1){
                 fim = true;
+
+                System.out.println("Chegou no final");
+
+                byte [] ack = ByteBuffer.allocate(4).putInt(begin).array();
+                socket.send(new DatagramPacket(ack, ack.length, InetAddress.getLocalHost(), 2000));
+                System.out.println("[ENVIOU] akc " + begin);
                 break;
             }
 
+            cont++;
         }
 
         //Reconstroi arquivo
         //File file = new File("recebido.pdf");
-        File file = new File("recebido.mp4");
+        File file = new File("recebido.pdf");
         FileOutputStream fos = new FileOutputStream(file);
         fos.write(bufferRecepcao.toByteArray());
         fos.flush();
