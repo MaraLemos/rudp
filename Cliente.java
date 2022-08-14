@@ -12,18 +12,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author 
- */
 public class Cliente {
-    public static String PATH = "teste.pdf";
-    
+
+    //public static String PATH = "teste.pdf";
+    public static String PATH = "video.mp4";
+
     public static List<byte[]> getPackets(String path) throws Exception {
         List<byte[]> packets = new ArrayList<>();
         
@@ -59,20 +52,20 @@ public class Cliente {
                 byte [] FIN = (index == (packets.size() -1)) ? ByteBuffer.allocate(4).putInt(1).array() : ByteBuffer.allocate(4).putInt(0).array();
 
                 System.arraycopy(seq, 0, datagrama, 0, 4);
-                System.out.println("[ENVIOU] numero de sequencia " + ByteBuffer.wrap(seq).getInt());
+                //System.out.println("[ENVIOU] numero de sequencia " + ByteBuffer.wrap(seq).getInt());
                 System.arraycopy(tam, 0, datagrama, 4, 4);
-                System.out.println("[ENVIOU] tam " + ByteBuffer.wrap(tam).getInt());
-                System.arraycopy(FIN, 0, datagrama, 8, 1);
-                System.out.println("[ENVIOU] fin " + ByteBuffer.wrap(FIN).getInt());
+                //System.out.println("[ENVIOU] tam " + ByteBuffer.wrap(tam).getInt());
+                System.arraycopy(FIN, 0, datagrama, 8, 4);
+                //System.out.println("[ENVIOU] fin " + ByteBuffer.wrap(FIN).getInt());
                 System.arraycopy(packet, 0, datagrama, 12, packet.length);
-                socket.send(new DatagramPacket(tam, tam.length, InetAddress.getLocalHost(), 1000));
+                socket.send(new DatagramPacket(datagrama, datagrama.length, InetAddress.getLocalHost(), 1000));
 
                 index++;
                 begin += datagrama.length;
 
                 byte [] ack = new byte[4];
                 socket.receive(new DatagramPacket(ack, ack.length));
-                ackk = ByteBuffer.wrap(ack).getInt(); 
+                ackk = ByteBuffer.wrap(ack).getInt();
             }
         }
     }
