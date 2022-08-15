@@ -60,7 +60,7 @@ public class Servidor {
                 //Escreve pacote no buffer de recepção
                 bufferRecepcao.write(packet,0,packet.length);
 
-                begin += datagrama.length;
+                begin += 16 + packet.length;
 
                 if(ByteBuffer.wrap(FIN).getInt() == 1){
                     fim = true;
