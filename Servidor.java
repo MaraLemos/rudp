@@ -23,7 +23,7 @@ public class Servidor {
         byte [] datagrama = new byte[1024];
 
         Boolean fim = false;
-        int ACK = 0, congWin = 1, cont = 0, contAnterior = -1;
+        int ACK = 0, congWin = 1, cont = 0, numPacotes = 0;
 
         while(!fim){
 
@@ -38,12 +38,16 @@ public class Servidor {
             System.arraycopy(datagrama, 16, dados, 0, dados.length);
             
             congWin = ByteBuffer.wrap(conWin).getInt();
+
             if(ByteBuffer.wrap(seq).getInt() == ACK){
+
+                numPacotes++;
+
                 //Escreve pacote no buffer de recepção
                 bufferRecepcao.write(dados,0,dados.length);
-                System.out.println("[RECEBEU] pacote " + (int)Math.ceil((float)bufferRecepcao.size()/1008));
+                System.out.println("[RECEBEU] pacote " + numPacotes);
                 
-                ACK += 16 + dados.length;
+                ACK += (16 + dados.length);
 
                 if(ByteBuffer.wrap(FIN).getInt() == 1){
                     fim = true;
@@ -56,18 +60,19 @@ public class Servidor {
                     break;
                 }
 
-                contAnterior++;
                 cont++;
 
             }else{
 
                 System.out.println("[ERRO] Pacote fora de ordem");
-                System.out.println("Num seq esperado = " + ACK + " (pacote " + ACK/1008 + ") Num seq recebido = " + ByteBuffer.wrap(seq).getInt() + " (pacote " + ByteBuffer.wrap(seq).getInt()/1008 + ")");
+                System.out.println("Num seq esperado = " + ACK + " (pacote " + ((ACK/1024)+1) + ") Num seq recebido = " + ByteBuffer.wrap(seq).getInt() + " (pacote " + ((ByteBuffer.wrap(seq).getInt()/1024)+1) + ")");
                 byte [] ack = ByteBuffer.allocate(4).putInt(ACK).array();
 
                 socket.send(new DatagramPacket(ack, ack.length, InetAddress.getLocalHost(), 2000));
                 socket.send(new DatagramPacket(ack, ack.length, InetAddress.getLocalHost(), 2000));
                 socket.send(new DatagramPacket(ack, ack.length, InetAddress.getLocalHost(), 2000));
+                
+                cont = congWin;
             }
 
             if(cont == congWin) {
