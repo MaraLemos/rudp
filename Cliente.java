@@ -14,8 +14,8 @@ import java.util.List;
 
 public class Cliente {
 
-    //public static String PATH = "teste.pdf";
-    public static String PATH = "video.mp4";
+    public static String PATH = "teste.pdf";
+    //public static String PATH = "video.mp4";
 
     public static List<byte[]> getPackets(String path) throws Exception {
         List<byte[]> packets = new ArrayList<>();
@@ -23,56 +23,54 @@ public class Cliente {
         try (FileInputStream file = new FileInputStream(path)) {
             for(int i = 0; i < (int) (file.getChannel().size()); i += 1008)
                 packets.add(file.readNBytes(1008));
-
-                System.out.println(file.getChannel().size());
         }
         
         return packets;
     }
     
-    // ByteBuffer.wrap(bytes).getInt() ==> array de byte para int
-    // ByteBuffer.allocate(4).putInt(begin).array(); ==> int para array de byte
-    
     public static void main(String[] args) throws Exception {
         DatagramSocket socket = new DatagramSocket(2000);
         
+        System.out.println("Preparando para enviar arquivo = " + PATH);
         List<byte[]> packets = getPackets(PATH);
+        System.out.println("Quantidade de pacotes = " + packets.size());
+        System.out.println("================================================");
 
+        int numSeq = 0, congWin = 1, prox = 0;
+        for(int index = 0; index < packets.size(); ) {
+            System.out.println("Tamanho da janela atual = " + congWin);
+            for(int cont = 0; cont < congWin && prox < packets.size(); cont++ , index++) {
 
-        int begin = 0, congWin = 1;
-        for(int index = 0; index < packets.size(); index += congWin) {
-            for(int cont = 0; cont < congWin && (cont + index < packets.size()); cont++) {
                 //Dados
-                byte [] packet = packets.get(cont + index);
-                
-                byte [] datagrama = new byte[16 + packet.length];
+                byte [] dados = packets.get(prox);
+                prox++;
+
+                if(prox == 3)
+                    prox++;
+                    
+                int tamDatagrama = 16 + dados.length;
+                byte [] datagrama = new byte[tamDatagrama];
 
                 //Cabeçalho
-                byte [] seq = ByteBuffer.allocate(4).putInt(begin).array();
-                byte [] tam = ByteBuffer.allocate(4).putInt(packet.length).array();
-                byte [] FIN = (index + cont == (packets.size() -1)) ? ByteBuffer.allocate(4).putInt(1).array() : ByteBuffer.allocate(4).putInt(0).array();
+                byte [] seq = ByteBuffer.allocate(4).putInt(numSeq).array();
+                byte [] tamDados = ByteBuffer.allocate(4).putInt(dados.length).array();
+                byte [] FIN = (prox == packets.size()) ? ByteBuffer.allocate(4).putInt(1).array() : ByteBuffer.allocate(4).putInt(0).array();
                 byte [] conWin = ByteBuffer.allocate(4).putInt(congWin).array();
 
                 System.arraycopy(seq, 0, datagrama, 0, 4);
-                System.arraycopy(tam, 0, datagrama, 4, 4);
+                System.arraycopy(tamDados, 0, datagrama, 4, 4);
                 System.arraycopy(FIN, 0, datagrama, 8, 4);
                 System.arraycopy(conWin, 0, datagrama, 12, 4);
-                System.arraycopy(packet, 0, datagrama, 16, packet.length);
+                System.arraycopy(dados, 0, datagrama, 16, dados.length);
                 
 
                 socket.send(new DatagramPacket(datagrama, datagrama.length, InetAddress.getLocalHost(), 1000));
                 
-                System.out.println("cont = " + cont);
-                System.out.println("[ENVIOU] numero de sequencia " + ByteBuffer.wrap(seq).getInt());
-                System.out.println("[ENVIOU] tam " + ByteBuffer.wrap(tam).getInt());
-                System.out.println("[ENVIOU] fin " + ByteBuffer.wrap(FIN).getInt());
-                  
+                System.out.println("[ENVIOU] pacote = " + prox);
+                System.out.println("Valor de ACK esperado = " + (numSeq + datagrama.length));
 
-                begin += datagrama.length;
+                numSeq += datagrama.length;
             }
-
-            System.out.println("proximo ack = " + begin);
-            System.out.println("Tamanho da janela = " + congWin);
 
             long time, time1;
             time = System.currentTimeMillis();
@@ -81,9 +79,14 @@ public class Cliente {
                 
                 byte [] ack = new byte[4];
                 socket.receive(new DatagramPacket(ack, ack.length));
-                System.out.println("[RECEBEU] akc " + ByteBuffer.wrap(ack).getInt());
+                System.out.println("[RECEBEU] AKC = " + ByteBuffer.wrap(ack).getInt());
 
-                if(ByteBuffer.wrap(ack).getInt() == begin){
+                if(ByteBuffer.wrap(ack).getInt() == numSeq){
+
+                    System.out.println("================================================");
+                    if(prox == packets.size()){
+                        System.out.println("FIM DA CONEXAO");
+                    }
                     congWin = aumentoAditivo(congWin);
                     break;
                 }
@@ -95,16 +98,24 @@ public class Cliente {
                 byte [] ack3 = new byte[4];
                 socket.receive(new DatagramPacket(ack3, ack3.length));
 
+                //Recebimento de 3 acks iguais identifica perda de pacote
                 if(ack2 != null && ack3 != null && ByteBuffer.wrap(ack).getInt() == ByteBuffer.wrap(ack2).getInt() && ByteBuffer.wrap(ack).getInt() == ByteBuffer.wrap(ack3).getInt()){
+                    System.out.println("[RECEBEU] AKC = " + ByteBuffer.wrap(ack).getInt());
+                    System.out.println("[RECEBEU] AKC = " + ByteBuffer.wrap(ack).getInt());
+                    System.out.println("[ERRO] Ocorreu perda de pacote");
+                    System.out.println("O PACOTE = " + (ByteBuffer.wrap(ack).getInt()/1024) + " SERA REENVIADO");
                     congWin = diminuicaoMultiplicativa(congWin);
-                    index = (ByteBuffer.wrap(ack).getInt() / 1024);
+                    prox = (ByteBuffer.wrap(ack).getInt() / 1024);
+                    System.out.println("prox " + prox);
+                    numSeq = ByteBuffer.wrap(ack).getInt();
+                    System.out.println("prox " + numSeq);
                     break;
                 }
 
             } while ((time1 - time) < (2 * 1000)) ;
 
             if((time1 - time) >= (2 * 1000)){
-                index -= congWin;
+                prox -= congWin;
                 congWin = diminuicaoMultiplicativa(congWin);
             }
         }
