@@ -1,0 +1,311 @@
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 2
+Valor de ACK esperado = 2048
+[RECEBEU] AKC = 0
+[RECEBEU] AKC = 0
+[RECEBEU] AKC = 0
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 1 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 1
+Valor de ACK esperado = 1024
+[RECEBEU] AKC = 0
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 3
+Valor de ACK esperado = 3072
+[RECEBEU] AKC = 1024
+[RECEBEU] AKC = 1024
+[RECEBEU] AKC = 1024
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 2 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 2
+Valor de ACK esperado = 2048
+[RECEBEU] AKC = 1024
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 4
+Valor de ACK esperado = 4096
+[RECEBEU] AKC = 2048
+[RECEBEU] AKC = 2048
+[RECEBEU] AKC = 2048
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 3 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 3
+Valor de ACK esperado = 3072
+[RECEBEU] AKC = 2048
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 4
+Valor de ACK esperado = 4096
+[RECEBEU] AKC = 4096
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 5
+Valor de ACK esperado = 5120
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 6
+Valor de ACK esperado = 6144
+[RECEBEU] AKC = 6144
+Tamanho da janela atual = 3
+[ENVIOU] pacote = 7
+Valor de ACK esperado = 7168
+Tamanho da janela atual = 3
+[ENVIOU] pacote = 8
+Valor de ACK esperado = 8192
+Tamanho da janela atual = 3
+[ENVIOU] pacote = 9
+Valor de ACK esperado = 9216
+[RECEBEU] AKC = 9216
+Tamanho da janela atual = 4
+[ENVIOU] pacote = 10
+Valor de ACK esperado = 10240
+Tamanho da janela atual = 4
+[ENVIOU] pacote = 11
+Valor de ACK esperado = 11264
+Tamanho da janela atual = 4
+[ENVIOU] pacote = 12
+Valor de ACK esperado = 12288
+Tamanho da janela atual = 4
+[ENVIOU] pacote = 13
+Valor de ACK esperado = 13312
+[RECEBEU] AKC = 13312
+Tamanho da janela atual = 5
+[ENVIOU] pacote = 15
+Valor de ACK esperado = 15360
+[RECEBEU] AKC = 13312
+[RECEBEU] AKC = 13312
+[RECEBEU] AKC = 13312
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 14 SERA REENVIADO
+================================================
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 14
+Valor de ACK esperado = 14336
+[RECEBEU] AKC = 13312
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 16
+Valor de ACK esperado = 16384
+[RECEBEU] AKC = 14336
+[RECEBEU] AKC = 14336
+[RECEBEU] AKC = 14336
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 15 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 15
+Valor de ACK esperado = 15360
+[RECEBEU] AKC = 14336
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 16
+Valor de ACK esperado = 16384
+[RECEBEU] AKC = 16384
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 17
+Valor de ACK esperado = 17408
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 18
+Valor de ACK esperado = 18432
+[RECEBEU] AKC = 18432
+Tamanho da janela atual = 3
+[ENVIOU] pacote = 19
+Valor de ACK esperado = 19456
+Tamanho da janela atual = 3
+[ENVIOU] pacote = 20
+Valor de ACK esperado = 20480
+Tamanho da janela atual = 3
+[ENVIOU] pacote = 21
+Valor de ACK esperado = 21504
+[RECEBEU] AKC = 21504
+Tamanho da janela atual = 4
+[ENVIOU] pacote = 23
+Valor de ACK esperado = 23552
+[RECEBEU] AKC = 21504
+[RECEBEU] AKC = 21504
+[RECEBEU] AKC = 21504
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 22 SERA REENVIADO
+================================================
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 22
+Valor de ACK esperado = 22528
+[RECEBEU] AKC = 21504
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 24
+Valor de ACK esperado = 24576
+[RECEBEU] AKC = 22528
+[RECEBEU] AKC = 22528
+[RECEBEU] AKC = 22528
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 23 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 24
+Valor de ACK esperado = 24576
+[RECEBEU] AKC = 22528
+[RECEBEU] AKC = 22528
+[RECEBEU] AKC = 22528
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 23 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 23
+Valor de ACK esperado = 23552
+[RECEBEU] AKC = 22528
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 25
+Valor de ACK esperado = 25600
+[RECEBEU] AKC = 23552
+[RECEBEU] AKC = 23552
+[RECEBEU] AKC = 23552
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 24 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 24
+Valor de ACK esperado = 24576
+[RECEBEU] AKC = 23552
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 26
+Valor de ACK esperado = 26624
+[RECEBEU] AKC = 24576
+[RECEBEU] AKC = 24576
+[RECEBEU] AKC = 24576
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 25 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 26
+Valor de ACK esperado = 26624
+[RECEBEU] AKC = 24576
+[RECEBEU] AKC = 24576
+[RECEBEU] AKC = 24576
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 25 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 25
+Valor de ACK esperado = 25600
+[RECEBEU] AKC = 24576
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 27
+Valor de ACK esperado = 27648
+[RECEBEU] AKC = 25600
+[RECEBEU] AKC = 25600
+[RECEBEU] AKC = 25600
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 26 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 27
+Valor de ACK esperado = 27648
+[RECEBEU] AKC = 25600
+[RECEBEU] AKC = 25600
+[RECEBEU] AKC = 25600
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 26 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 26
+Valor de ACK esperado = 26624
+[RECEBEU] AKC = 25600
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 27
+Valor de ACK esperado = 27648
+[RECEBEU] AKC = 27648
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 28
+Valor de ACK esperado = 28672
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 29
+Valor de ACK esperado = 29696
+[RECEBEU] AKC = 29696
+Tamanho da janela atual = 3
+[ENVIOU] pacote = 30
+Valor de ACK esperado = 30720
+Tamanho da janela atual = 3
+[ENVIOU] pacote = 31
+Valor de ACK esperado = 31744
+Tamanho da janela atual = 3
+[ENVIOU] pacote = 32
+Valor de ACK esperado = 32768
+[RECEBEU] AKC = 32768
+Tamanho da janela atual = 4
+[ENVIOU] pacote = 34
+Valor de ACK esperado = 34816
+[RECEBEU] AKC = 32768
+[RECEBEU] AKC = 32768
+[RECEBEU] AKC = 32768
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 33 SERA REENVIADO
+================================================
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 34
+Valor de ACK esperado = 34816
+[RECEBEU] AKC = 32768
+[RECEBEU] AKC = 32768
+[RECEBEU] AKC = 32768
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 33 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 33
+Valor de ACK esperado = 33792
+[RECEBEU] AKC = 32768
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 34
+Valor de ACK esperado = 34816
+[RECEBEU] AKC = 34816
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 35
+Valor de ACK esperado = 35840
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 36
+Valor de ACK esperado = 36864
+[RECEBEU] AKC = 36864
+Tamanho da janela atual = 3
+[ENVIOU] pacote = 38
+Valor de ACK esperado = 38912
+[RECEBEU] AKC = 36864
+[RECEBEU] AKC = 36864
+[RECEBEU] AKC = 36864
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 37 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 38
+Valor de ACK esperado = 38912
+[RECEBEU] AKC = 36864
+[RECEBEU] AKC = 36864
+[RECEBEU] AKC = 36864
+[ERRO] Ocorreu perda de pacote
+
+O PACOTE = 37 SERA REENVIADO
+================================================
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 37
+Valor de ACK esperado = 37888
+[RECEBEU] AKC = 36864
+Tamanho da janela atual = 1
+[ENVIOU] pacote = 38
+Valor de ACK esperado = 38912
+[RECEBEU] AKC = 38912
+Tamanho da janela atual = 2
+[ENVIOU] pacote = 40

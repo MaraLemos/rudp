@@ -1,0 +1,317 @@
+[ERRO] Pacote fora de ordem
+Num seq esperado = 0 (pacote 1) Num seq recebido = 1024 (pacote 2)
+[ENVIOU] ACK 0
+================================================
+[RECEBEU] pacote 1
+[ENVIOU] ACK 1024
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 1024 (pacote 2) Num seq recebido = 2048 (pacote 3)
+[ENVIOU] ACK 1024
+================================================
+[RECEBEU] pacote 2
+[ENVIOU] ACK 2048
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 2048 (pacote 3) Num seq recebido = 3072 (pacote 4)
+[ENVIOU] ACK 2048
+================================================
+[RECEBEU] pacote 3
+[ENVIOU] ACK 3072
+================================================
+[RECEBEU] pacote 4
+[ENVIOU] ACK 4096
+================================================
+[RECEBEU] pacote 5
+[RECEBEU] pacote 6
+[ENVIOU] ACK 6144
+================================================
+[RECEBEU] pacote 7
+[RECEBEU] pacote 8
+[RECEBEU] pacote 9
+[ENVIOU] ACK 9216
+================================================
+[RECEBEU] pacote 10
+[RECEBEU] pacote 11
+[RECEBEU] pacote 12
+[RECEBEU] pacote 13
+[ENVIOU] ACK 13312
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 13312 (pacote 14) Num seq recebido = 14336 (pacote 15)
+[ENVIOU] ACK 13312
+================================================
+[RECEBEU] pacote 14
+[ERRO] Pacote fora de ordem
+Num seq esperado = 14336 (pacote 15) Num seq recebido = 15360 (pacote 16)
+[ENVIOU] ACK 14336
+================================================
+[RECEBEU] pacote 15
+[ENVIOU] ACK 15360
+================================================
+[RECEBEU] pacote 16
+[ENVIOU] ACK 16384
+================================================
+[RECEBEU] pacote 17
+[RECEBEU] pacote 18
+[ENVIOU] ACK 18432
+================================================
+[RECEBEU] pacote 19
+[RECEBEU] pacote 20
+[RECEBEU] pacote 21
+[ENVIOU] ACK 21504
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 21504 (pacote 22) Num seq recebido = 22528 (pacote 23)
+[ENVIOU] ACK 21504
+================================================
+[RECEBEU] pacote 22
+[ERRO] Pacote fora de ordem
+Num seq esperado = 22528 (pacote 23) Num seq recebido = 23552 (pacote 24)
+[ENVIOU] ACK 22528
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 22528 (pacote 23) Num seq recebido = 23552 (pacote 24)
+[ENVIOU] ACK 22528
+================================================
+[RECEBEU] pacote 23
+[ENVIOU] ACK 23552
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 23552 (pacote 24) Num seq recebido = 24576 (pacote 25)
+[ENVIOU] ACK 23552
+================================================
+[RECEBEU] pacote 24
+[ENVIOU] ACK 24576
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 24576 (pacote 25) Num seq recebido = 25600 (pacote 26)
+[ENVIOU] ACK 24576
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 24576 (pacote 25) Num seq recebido = 25600 (pacote 26)
+[ENVIOU] ACK 24576
+================================================
+[RECEBEU] pacote 25
+[ENVIOU] ACK 25600
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 25600 (pacote 26) Num seq recebido = 26624 (pacote 27)
+[ENVIOU] ACK 25600
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 25600 (pacote 26) Num seq recebido = 26624 (pacote 27)
+[ENVIOU] ACK 25600
+================================================
+[RECEBEU] pacote 26
+[ENVIOU] ACK 26624
+================================================
+[RECEBEU] pacote 27
+[ENVIOU] ACK 27648
+================================================
+[RECEBEU] pacote 28
+[RECEBEU] pacote 29
+[ENVIOU] ACK 29696
+================================================
+[RECEBEU] pacote 30
+[RECEBEU] pacote 31
+[RECEBEU] pacote 32
+[ENVIOU] ACK 32768
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 32768 (pacote 33) Num seq recebido = 33792 (pacote 34)
+[ENVIOU] ACK 32768
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 32768 (pacote 33) Num seq recebido = 33792 (pacote 34)
+[ENVIOU] ACK 32768
+================================================
+[RECEBEU] pacote 33
+[ENVIOU] ACK 33792
+================================================
+[RECEBEU] pacote 34
+[ENVIOU] ACK 34816
+================================================
+[RECEBEU] pacote 35
+[RECEBEU] pacote 36
+[ENVIOU] ACK 36864
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 36864 (pacote 37) Num seq recebido = 37888 (pacote 38)
+[ENVIOU] ACK 36864
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 36864 (pacote 37) Num seq recebido = 37888 (pacote 38)
+[ENVIOU] ACK 36864
+================================================
+[RECEBEU] pacote 37
+[ENVIOU] ACK 37888
+================================================
+[RECEBEU] pacote 38
+[ENVIOU] ACK 38912
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 38912 (pacote 39) Num seq recebido = 39936 (pacote 40)
+[ENVIOU] ACK 38912
+================================================
+[RECEBEU] pacote 39
+[ENVIOU] ACK 39936
+================================================
+[RECEBEU] pacote 40
+[ENVIOU] ACK 40960
+================================================
+[RECEBEU] pacote 41
+[RECEBEU] pacote 42
+[ENVIOU] ACK 43008
+================================================
+[RECEBEU] pacote 43
+[ERRO] Pacote fora de ordem
+Num seq esperado = 44032 (pacote 44) Num seq recebido = 45056 (pacote 45)
+[ENVIOU] ACK 44032
+================================================
+[RECEBEU] pacote 44
+[ENVIOU] ACK 45056
+================================================
+[RECEBEU] pacote 45
+[ENVIOU] ACK 46080
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 46080 (pacote 46) Num seq recebido = 47104 (pacote 47)
+[ENVIOU] ACK 46080
+================================================
+[RECEBEU] pacote 46
+[ENVIOU] ACK 47104
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 47104 (pacote 47) Num seq recebido = 48128 (pacote 48)
+[ENVIOU] ACK 47104
+================================================
+[RECEBEU] pacote 47
+[ENVIOU] ACK 48128
+================================================
+[RECEBEU] pacote 48
+[ENVIOU] ACK 49152
+================================================
+[RECEBEU] pacote 49
+[RECEBEU] pacote 50
+[ENVIOU] ACK 51200
+================================================
+[RECEBEU] pacote 51
+[RECEBEU] pacote 52
+[RECEBEU] pacote 53
+[ENVIOU] ACK 54272
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 54272 (pacote 54) Num seq recebido = 55296 (pacote 55)
+[ENVIOU] ACK 54272
+================================================
+[RECEBEU] pacote 54
+[RECEBEU] pacote 55
+[ENVIOU] ACK 56320
+================================================
+[RECEBEU] pacote 56
+[RECEBEU] pacote 57
+[RECEBEU] pacote 58
+[ENVIOU] ACK 59392
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 59392 (pacote 59) Num seq recebido = 60416 (pacote 60)
+[ENVIOU] ACK 59392
+================================================
+[RECEBEU] pacote 59
+[ERRO] Pacote fora de ordem
+Num seq esperado = 60416 (pacote 60) Num seq recebido = 61440 (pacote 61)
+[ENVIOU] ACK 60416
+================================================
+[RECEBEU] pacote 60
+[ENVIOU] ACK 61440
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 61440 (pacote 61) Num seq recebido = 62464 (pacote 62)
+[ENVIOU] ACK 61440
+================================================
+[RECEBEU] pacote 61
+[ENVIOU] ACK 62464
+================================================
+[RECEBEU] pacote 62
+[ENVIOU] ACK 63488
+================================================
+[RECEBEU] pacote 63
+[ERRO] Pacote fora de ordem
+Num seq esperado = 64512 (pacote 64) Num seq recebido = 65536 (pacote 65)
+[ENVIOU] ACK 64512
+================================================
+[RECEBEU] pacote 64
+[ENVIOU] ACK 65536
+================================================
+[RECEBEU] pacote 65
+[ENVIOU] ACK 66560
+================================================
+[RECEBEU] pacote 66
+[RECEBEU] pacote 67
+[ENVIOU] ACK 68608
+================================================
+[RECEBEU] pacote 68
+[RECEBEU] pacote 69
+[ERRO] Pacote fora de ordem
+Num seq esperado = 70656 (pacote 70) Num seq recebido = 71680 (pacote 71)
+[ENVIOU] ACK 70656
+================================================
+[RECEBEU] pacote 70
+[ENVIOU] ACK 71680
+================================================
+[RECEBEU] pacote 71
+[ENVIOU] ACK 72704
+================================================
+[RECEBEU] pacote 72
+[RECEBEU] pacote 73
+[ENVIOU] ACK 74752
+================================================
+[RECEBEU] pacote 74
+[ERRO] Pacote fora de ordem
+Num seq esperado = 75776 (pacote 75) Num seq recebido = 76800 (pacote 76)
+[ENVIOU] ACK 75776
+================================================
+[RECEBEU] pacote 75
+[ENVIOU] ACK 76800
+================================================
+[RECEBEU] pacote 76
+[ENVIOU] ACK 77824
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 77824 (pacote 77) Num seq recebido = 78848 (pacote 78)
+[ENVIOU] ACK 77824
+================================================
+[RECEBEU] pacote 77
+[ENVIOU] ACK 78848
+================================================
+[RECEBEU] pacote 78
+[ENVIOU] ACK 79872
+================================================
+[RECEBEU] pacote 79
+[RECEBEU] pacote 80
+[ENVIOU] ACK 81920
+================================================
+[ERRO] Pacote fora de ordem
+Num seq esperado = 81920 (pacote 81) Num seq recebido = 82944 (pacote 82)
+[ENVIOU] ACK 81920
+================================================
+[RECEBEU] pacote 81
+[ENVIOU] ACK 82944
+================================================
+[RECEBEU] pacote 82
+[ENVIOU] ACK 83968
+================================================
+[RECEBEU] pacote 83
+[RECEBEU] pacote 84
+[ENVIOU] ACK 86016
+================================================
+[RECEBEU] pacote 85
+[RECEBEU] pacote 86
+[RECEBEU] pacote 87
+[ENVIOU] ACK 89088
+================================================
+[RECEBEU] pacote 88
+[RECEBEU] pacote 89
+[RECEBEU] pacote 90
+[ENVIOU] ACK 91738

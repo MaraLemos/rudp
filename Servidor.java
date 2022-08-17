@@ -5,10 +5,14 @@ import java.net.InetAddress;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
+import java.io.FileWriter;
 
 public class Servidor {
     public static void main(String[] args) throws Exception {
+        
+        BufferedWriter saida = new BufferedWriter(new FileWriter("outputServer.txt"));
 
         DatagramSocket socket = new DatagramSocket(1000);
 
@@ -45,8 +49,8 @@ public class Servidor {
 
                 //Escreve pacote no buffer de recepção
                 bufferRecepcao.write(dados,0,dados.length);
-                System.out.println("[RECEBEU] pacote " + numPacotes);
-                
+                saida.write("[RECEBEU] pacote " + numPacotes);
+                saida.newLine();
                 ACK += (16 + dados.length);
 
                 if(ByteBuffer.wrap(FIN).getInt() == 1){
@@ -54,7 +58,8 @@ public class Servidor {
 
                     byte [] ack = ByteBuffer.allocate(4).putInt(ACK).array();
                     socket.send(new DatagramPacket(ack, ack.length, InetAddress.getLocalHost(), 2000));
-                    System.out.println("[ENVIOU] ACK " + ACK);
+                    saida.write("[ENVIOU] ACK " + ACK);
+                    saida.newLine();
                     System.out.println("================================================");
                     System.out.println("FIM DA CONEXAO");
                     break;
@@ -64,8 +69,10 @@ public class Servidor {
 
             }else{
 
-                System.out.println("[ERRO] Pacote fora de ordem");
-                System.out.println("Num seq esperado = " + ACK + " (pacote " + ((ACK/1024)+1) + ") Num seq recebido = " + ByteBuffer.wrap(seq).getInt() + " (pacote " + ((ByteBuffer.wrap(seq).getInt()/1024)+1) + ")");
+                saida.write("[ERRO] Pacote fora de ordem");
+                saida.newLine();
+                saida.write("Num seq esperado = " + ACK + " (pacote " + ((ACK/1024)+1) + ") Num seq recebido = " + ByteBuffer.wrap(seq).getInt() + " (pacote " + ((ByteBuffer.wrap(seq).getInt()/1024)+1) + ")");
+                saida.newLine();
                 byte [] ack = ByteBuffer.allocate(4).putInt(ACK).array();
 
                 socket.send(new DatagramPacket(ack, ack.length, InetAddress.getLocalHost(), 2000));
@@ -79,18 +86,23 @@ public class Servidor {
                 
                 byte [] ack = ByteBuffer.allocate(4).putInt(ACK).array();
                 socket.send(new DatagramPacket(ack, ack.length, InetAddress.getLocalHost(), 2000));
-                System.out.println("[ENVIOU] ACK " + ACK);
-                System.out.println("================================================");
+                saida.write("[ENVIOU] ACK " + ACK);
+                saida.newLine();
+                saida.write("================================================");
+                saida.newLine();
                 cont = 0;
             }
         }
 
         //Reconstroi arquivo
+        //File file = new File("recebido.pdf");
         File file = new File("recebido.pdf");
-        //File file = new File("recebido.mp4");
         FileOutputStream fos = new FileOutputStream(file);
         fos.write(bufferRecepcao.toByteArray());
         fos.flush();
         fos.close();
+
+        saida.close();
+        socket.close();
     }
 }

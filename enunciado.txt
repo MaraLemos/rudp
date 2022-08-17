@@ -1,8 +1,0 @@
-
-
-5) Deve haver uma janela deslizante com tamanho N no buffer do remetente e do servidor. Onde N é igual a pelo menos 10 pacotes de tamanho M.
-7) Adicione no protocolo um controle de fluxo, onde o remetente deve saber qual o tamanho da janela N do destinatário, a fim de não afogá-lo.
-8) Por fim, crie um equação de controle de congestionamento, a fim de que, se a rede estiver apresentando perda (muitos pacotes com ACK pendentes e timeout), ele deve ser utilizado para reduzir o fluxo de envio de pacotes.
-9) Avalie seu protocolo sobre um remetente que envia um arquivo de, pelo menos, 10MB, qualquer, para 1 destinatário. Para avaliar o controle de congestionamento, insira perdas arbitrárias de pacotes no destinatário (você pode fazer isso sorteando a cada chegada de um novo pacotes se ele será contabilizado e processado ou descartado).
-
-Escreva um relatório como documentação da lógica do protocolo, e mostre gráficos da utilização do protocolo em relação à vazão da rede para o envio do arquivo de 10MB sem e com perdas.
